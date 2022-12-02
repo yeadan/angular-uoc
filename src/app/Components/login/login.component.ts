@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { HeaderMenu } from 'src/app/Models/header-menu';
+import { HeaderMenuService } from 'src/app/Services/header-menu.service';
 import { UserService } from 'src/app/Services/user.service';
 
 @Component({
@@ -11,17 +13,15 @@ export class LoginComponent {
   public loginValid = true;
   email: string = '';
   password: string = '';
-  actual: string = '';
   public message: string = '';
 
-  constructor(public userService: UserService, public router: Router) {}
+  constructor(
+    public userService: UserService,
+    public router: Router,
+    public headerMenuService: HeaderMenuService
+  ) {}
 
-  ngOnInit(): void {
-    if (this.userService.getToken()) {
-      this.actual = 'Cargando...';
-      this.actualUser();
-    }
-  }
+  ngOnInit(): void {}
 
   login(): void {
     this.loginValid = true;
@@ -33,7 +33,13 @@ export class LoginComponent {
         this.userService.setToken(data.data.msg);
         this.loginValid = true;
         this.message = '';
-        this.actualUser();
+        const headerInfo: HeaderMenu = {
+          showAuthSection: true,
+          showNoAuthSection: false,
+        };
+        // update options menu
+        this.headerMenuService.headerManagement.next(headerInfo);
+        //this.router.navigateByUrl('home');
       },
       error: (e) => {
         console.error('Error logging in', e);
@@ -42,13 +48,9 @@ export class LoginComponent {
       },
     });
   }
-  logout(): void {
-    this.actual = '';
-    this.userService.logout();
-  }
-  actualUser(): void {
+  /* actualUser(): void {
     this.userService.actualUser().subscribe((data) => {
       this.actual = data.name;
     });
-  }
+  }*/
 }

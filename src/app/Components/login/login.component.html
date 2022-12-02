@@ -1,10 +1,4 @@
-<div *ngIf="actual!=''" class="logout">
-  <form class="logout-form">
-    <h1>{{actual}}</h1>
-    <button mat-raised-button color="primary" (click)="logout()">Logout</button>
-  </form>
-</div>
-<div *ngIf="actual===''" class="login">
+<div class="login">
   <mat-card>
     <mat-card-content>
       <form #loginForm="ngForm" (ngSubmit)="login()">
