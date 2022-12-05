@@ -9,7 +9,7 @@ export class User {
   created_at?: Date;
   updated_at?: Date;
 
-  constructor(name: string, email: string, admin: boolean, password: string) {
+  constructor(name: string, email: string, password: string) {
     this.name = name;
     this.email = email;
     this.password = password;

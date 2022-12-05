@@ -39,7 +39,7 @@ export class LoginComponent {
         };
         // update options menu
         this.headerMenuService.headerManagement.next(headerInfo);
-        //this.router.navigateByUrl('home');
+        this.router.navigateByUrl('home');
       },
       error: (e) => {
         console.error('Error logging in', e);

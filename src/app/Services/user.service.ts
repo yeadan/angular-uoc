@@ -18,6 +18,9 @@ export class UserService {
   actualUser(): Observable<any> {
     return this.http.get('http://localhost:8000/api/user');
   }
+  getUser(id: number): Observable<any> {
+    return this.http.get('http://localhost:8000/api/user/' + id);
+  }
   //Utilizaremos cookies para almacenar el token JWT
   setToken(token: string) {
     this.cookies.set('token', token);
