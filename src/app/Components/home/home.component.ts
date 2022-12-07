@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { PostService } from 'src/app/Services/post.service';
-import { UserService } from 'src/app/Services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -11,10 +11,7 @@ import { UserService } from 'src/app/Services/user.service';
 export class HomeComponent {
   Posts: any;
 
-  constructor(
-    private postService: PostService,
-    public userService: UserService
-  ) {}
+  constructor(private postService: PostService, private router: Router) {}
   ngOnInit(): void {
     this.postService.listPost().subscribe({
       next: (data) => {
@@ -23,18 +20,7 @@ export class HomeComponent {
       },
     });
   }
-  /* search(id: number): void {
-    this.subs = this.userService
-      .getUser(id)
-      .pipe(take(1))
-      .subscribe({
-        next: (data) => {
-          console.log(data.data);
-          this.name = data.data.name;
-          console.log(this.name);
-        },
-      });
-
-    //this.subs.unsubscribe();
-  }*/
+  goPost(id: string): void {
+    this.router.navigateByUrl('/post/' + id);
+  }
 }

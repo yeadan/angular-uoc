@@ -1,11 +1,23 @@
 <div class="register">
-  <form class="custom-form" method="post">
-    <h1>Register</h1>
-    <input type="name" [(ngModel)]="name" name="name" placeholder="Name" required="required" />
-    <input type="email" [(ngModel)]="email" name="email" placeholder="Email" required="required" />
-    <input type="password" [(ngModel)]="password" name="password" placeholder="Password" required="required" />
-    <input type="password" [(ngModel)]="confirmPassword" name="password" placeholder="Repeat the password"
-      required="required" />
-    <button type="submit" (click)="register()">Register</button>
-  </form>
+  <mat-card>
+    <mat-card-content>
+      <form #registerForm="ngForm" (ngSubmit)="register()">
+        <h1>Register</h1>
+        <mat-form-field>
+        <input matInput type="name" [(ngModel)]="name" name="name" placeholder="Name" required="required" />
+        </mat-form-field>
+        <mat-form-field>
+        <input matInput type="email" [(ngModel)]="email" name="email" placeholder="Email" required="required" />
+        </mat-form-field>
+        <mat-form-field>
+        <input matInput type="password" [(ngModel)]="password" name="password" placeholder="Password" required="required" />
+        </mat-form-field>
+        <mat-form-field>
+        <input matInput type="password" [(ngModel)]="confirmPassword" name="password" placeholder="Repeat the password"
+          required="required" />
+          </mat-form-field>
+          <button mat-raised-button color="primary" [disabled]="!registerForm.form.valid">Register</button>
+      </form>
+   </mat-card-content>
+  </mat-card>
 </div>

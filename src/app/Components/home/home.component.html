@@ -1,17 +1,22 @@
-<p>home works!</p>
-
-<div *ngFor="let post of Posts ">
-  <mat-card class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>{{post.title}}</mat-card-title>
-      <mat-card-subtitle>Likes: {{post.num_likes}}</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-content>
-      <p>
-        {{post.description}}
-      </p>
-    </mat-card-content>
-  </mat-card>
-</div>
+<main class="list-posts">
+  <ul *ngFor="let post of Posts" class="container">
+    <li (click)="goPost(post.id)">
+      <figure>
+        <img src="./image/{{post.all.image.src}}" alt="post photo">
+        <figcaption>
+          <div class="author">
+            <cite>{{post.title}}</cite>
+            <div class="block">
+              <blockquote>
+                <p lang="es">
+                  {{post.description}}
+                </p>
+              </blockquote>
+              <p>{{post.all.user.name}}</p>
+            </div>
+          </div>
+        </figcaption>
+      </figure>
+    </li>
+  </ul>
+</main>

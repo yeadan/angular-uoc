@@ -11,14 +11,17 @@ export class PostService {
   addPost(post: any): Observable<any> {
     return this.http.post('http://localhost:8000/api/post', post);
   }
-  deletePost(id: number): Observable<any> {
+  deletePost(id: string): Observable<any> {
     return this.http.delete('http://localhost:8000/api/post/' + id);
   }
-  editPost(post: any, id: number): Observable<any> {
+  editPost(post: any, id: string): Observable<any> {
     return this.http.put('http://localhost:8000/api/post/' + id, post);
   }
-  getPost(id: number): Observable<any> {
+  getPost(id: string): Observable<any> {
     return this.http.get('http://localhost:8000/api/post/' + id);
+  }
+  listPostPublic(): Observable<any> {
+    return this.http.get('http://localhost:8000/api/post?public');
   }
   listPost(): Observable<any> {
     return this.http.get('http://localhost:8000/api/post');

@@ -13,10 +13,10 @@ import { AuthInterceptorService } from './Services/auth-interceptor.service';
 
 //Importaciones angular material
 //import { FlexLayoutModule } from '@angular/flex-layout';
-
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatOptionModule } from '@angular/material/core';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
@@ -26,6 +26,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HeaderComponent } from './Components/header/header.component';
 import { HomeComponent } from './Components/home/home.component';
+import { PostComponent } from './Components/post/post.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { HomeComponent } from './Components/home/home.component';
     RegisterComponent,
     HeaderComponent,
     HomeComponent,
+    PostComponent,
   ],
   imports: [
     HttpClientModule,
@@ -48,6 +50,7 @@ import { HomeComponent } from './Components/home/home.component';
     MatIconModule,
     MatButtonModule,
     MatTableModule,
+    MatGridListModule,
     MatSlideToggleModule,
     MatSelectModule,
     MatOptionModule,

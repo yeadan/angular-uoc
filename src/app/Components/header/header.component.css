@@ -1,0 +1,13 @@
+
+.navegation button:hover {
+    background-color: #ddd;
+    color: black;
+  }
+.navegation span {
+    padding-right: 15px;
+}
+  
+.navegation button.active {
+    background-color: #04AA6D;
+    color: white;
+  }

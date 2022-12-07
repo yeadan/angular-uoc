@@ -1,17 +1,21 @@
 <!-- NO AUTH REQUIRED -->
-
-<div *ngIf="showNoAuthSection">
-  <button (click)="home()">Home</button>
-  <button (click)="login()">Login</button>
-  <button (click)="register()">Register</button>
+<div class="navegation" *ngIf="showNoAuthSection">
+  <mat-toolbar color="primary">
+    <span>Red Social</span>
+    <button mat-button (click)="home()">Inicio</button>
+    <button mat-button (click)="login()">Login</button>
+    <button mat-button (click)="register()">Register</button>
+  </mat-toolbar>
 </div>
 
 <!-- AUTH REQUIRED -->
-
-<div *ngIf="showAuthSection">
-  <button (click)="home()">Home</button>
-  <button (click)="adminPosts()">Admin posts</button>
-  <button (click)="adminCategories()">Admin categories</button>
-  <button (click)="profile()">Profile</button>
-  <button (click)="logout()">Logout</button>
+<div class="navegation" *ngIf="showAuthSection">
+  <mat-toolbar color="primary">
+    <span>Red Social</span>
+    <button mat-button (click)="home()">Inicio</button>
+    <button mat-button (click)="profile()">Profile</button>
+    <button mat-button (click)="adminPosts()">Admin posts</button>
+    <button mat-button (click)="adminCategories()">Admin categories</button>
+    <button mat-button (click)="logout()">Logout</button>
+  </mat-toolbar>
 </div>

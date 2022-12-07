@@ -71,6 +71,6 @@ export class HeaderComponent {
 
     this.headerMenusService.headerManagement.next(headerInfo);
 
-    //this.router.navigateByUrl('home');
+    this.router.navigateByUrl('home');
   }
 }
