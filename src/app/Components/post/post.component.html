@@ -1,1 +1,30 @@
-<p>post works!</p>
+<main class="list-posts">
+    <ul class="container">
+        <li *ngIf="post">
+            <figure>
+                <img src="./image/{{post.image.src}}" alt="post photo">
+                <figcaption>
+                    <div class="author">
+                        <cite>{{post.data.title}}</cite>
+                        <div class="block">
+                            <blockquote>
+                                <p lang="es">
+                                    {{post.data.description}}
+                                </p>
+                            </blockquote>
+                            <p>{{post.user.name}}</p>
+                        </div>
+                    </div>
+                </figcaption>
+            </figure>
+        </li>
+    </ul>
+
+    <ul class="container-li" *ngFor="let comment of comments">
+        <li class="comment-li">
+            <h2><mat-icon>person</mat-icon> {{comment.user.name}}</h2>
+            <p>{{comment.data.content}} </p>
+        </li>
+        <br />
+    </ul>
+</main>

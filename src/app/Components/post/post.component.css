@@ -1,0 +1,173 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  main {
+    font-family: 'Alegreya', serif;
+  }
+
+  span,p  {
+    font-style: italic;
+  }
+
+
+  .container {
+    text-align: center;
+    margin:auto;
+    display: grid;
+    padding: 1rem;
+  }
+  .container-li {
+    margin:auto;
+    display: grid;
+    padding: 1rem;
+  }
+
+  .container ul {
+    grid-column-start: 1;
+  }
+  .container figure img{
+    width: 100%;
+  }
+
+  .author cite {
+    text-decoration: none;
+    font-style: normal;
+    font-size: 2.8rem;
+    line-height: 2.8rem;
+    font-weight: 800;
+  }
+
+  .block >p {
+    font-size: 1.45rem;
+    font-weight: 800;
+  }
+  .block >p::before {
+        display: inline-block;
+        content: "";
+        border-top: .35rem solid rgb(64, 81, 181);
+        width: 1.75rem;
+        margin-right: 0.25rem;
+        transform: translateY(-0rem);
+  }
+mat-icon {
+  color:rgb(64, 81, 181);
+  padding-top: 5px;
+}
+.comment-li {
+   background: rgba(0,0,0,0.1);
+
+}
+  .author blockquote {
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+  }
+  .author blockquote p {
+    font-size: 1.185rem;
+    font-style: italic;
+  }
+  .list-posts figcaption {
+    background: rgba(0,0,0,0.1);
+    padding: 1rem;
+  }
+  .list-posts figure {
+    display:grid;
+    grid-template-areas:
+        "figcaption"
+        "image";
+    text-align: left;
+    padding-bottom: 1.5rem;
+  }
+  .list-posts img {
+    grid-area: image;
+  }
+  .list-posts figcaption {
+    grid-area: figcaption;
+  }
+  .list-posts li {
+    padding-bottom: 0;
+    list-style: none;
+  }
+
+  .list-posts {
+    padding-bottom: 2rem;
+  }
+  /* Comentarios: */
+
+  /* Diseño mobile first, diseñamos para móvil y ya cambiamos para otros tamaños */
+  [class*="col-"] {
+    width: 100%;
+    text-align: center;
+  }
+
+  @media screen and (min-width: 1024px) {
+  /* Haremos el cambio cuando sea mayor de 1024 */
+
+    .container-li {
+      padding-left: 0;
+    }
+    .col-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .col-2 {
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-start: 1;
+        display: grid;
+    }
+    .col-row {
+        grid-template-columns: 24% 76%;
+    }
+
+    .list-posts figure {
+        display:grid;
+        grid-template-areas:
+            "figcaption image";
+        grid-template-columns: auto 20rem;
+        text-align: left;
+        padding-bottom: 0;
+    }
+    .list-posts .container {
+        padding: 0;
+    }
+    .list-posts h1 {
+        padding-left: 0;
+    }
+    .list-posts {
+        padding-left: 15%;
+        padding-right: 15%;
+        padding-bottom: 5rem;
+    }
+    .list-posts .author {
+        display: grid;
+        grid-template-columns: 16rem auto;
+        grid-gap: 15px;
+        grid-template-areas:
+            "cite bloque";
+        padding-bottom: 0;
+    }
+    .list-posts figcaption {
+        background-color: white;
+        padding-left: 0;
+        padding-bottom: 0;
+    }
+    .list-posts img  {
+        padding: 1rem 1rem 0 0;
+        height:20rem;
+        width: auto;
+    }
+    .list-posts .block {
+        grid-area: bloque;
+        background-color: rgba(0, 0, 0, 0.1);
+        padding: 0 1rem 0 1rem;
+        min-width: 22rem;
+    }
+    .list-posts cite {
+        grid-area: cite;
+        background-color: rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+        height:19rem;
+        width:16rem;
+    }
+
+  }
