@@ -101,6 +101,10 @@ span  {
   .col-row {
       grid-template-columns: 24% 76%;
   }
+  .author cite {
+    font-size: 2.0rem;
+    line-height: 2.0rem;
+  }
 
   .list-posts figure {
       display:grid;
@@ -136,7 +140,7 @@ span  {
   }
   .list-posts img  {
       padding: 1rem 1rem 0 0;
-      height:20rem;
+      height:10rem;
       width: auto;
   }
   .list-posts .block {
@@ -149,7 +153,7 @@ span  {
       grid-area: cite;
       background-color: rgba(0, 0, 0, 0.1);
       padding: 1rem;
-      height:19rem;
+      height:9rem;
       width:16rem;
   }
 

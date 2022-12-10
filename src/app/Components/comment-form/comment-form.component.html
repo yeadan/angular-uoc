@@ -1,0 +1,6 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <textarea class="comment-form-textarea" formControlName="content"></textarea>
+    <button class="comment-form-button pointer" type="submit" [disabled]="form.invalid">
+        Aceptar
+    </button>
+</form>

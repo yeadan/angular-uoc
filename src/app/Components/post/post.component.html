@@ -3,6 +3,16 @@
         <li *ngIf="post">
             <figure>
                 <img src="./image/{{post.image.src}}" alt="post photo">
+                <div class="comment-panel">
+                    <mat-icon class="pointer">favorite_border</mat-icon>
+                    <mat-icon (click)="isEditing(0,'post')" class="pointer">insert_comment</mat-icon>
+                    <mat-icon *ngIf="!post.data.reported" class="pointer" (click)="reportPost(post)">info</mat-icon>
+                    <mat-icon *ngIf="post.data.reported" style="color:black">info</mat-icon>
+                    <h4>{{post.data.num_likes}} <span>Me gusta</span></h4>
+                </div>
+                <app-comment-form *ngIf="this.activePost" (handleSubmit)="
+                createComment($event, post.data.id)">
+                </app-comment-form>
                 <figcaption>
                     <div class="author">
                         <cite>{{post.data.title}}</cite>
@@ -19,12 +29,30 @@
             </figure>
         </li>
     </ul>
+    <ul class="container-li" *ngFor="let comment of comments; let i = index">
+        <div class="comment-li">
+            <li>
+                <div class="right-li">
+                    <mat-icon *ngIf="!comment.data.reported && comment.user.id == this.actual"
+                        (click)="isEditing(comment.data.id,'comment')" class=" pointer">edit</mat-icon>
+                    <mat-icon *ngIf="comment.user.admin||comment.user.id == this.actual"
+                        (click)="delete(comment.data.id,i)" class="pointer">delete</mat-icon>
 
-    <ul class="container-li" *ngFor="let comment of comments">
-        <li class="comment-li">
-            <h2><mat-icon>person</mat-icon> {{comment.user.name}}</h2>
-            <p>{{comment.data.content}} </p>
-        </li>
-        <br />
+                    <mat-icon *ngIf="!comment.data.reported" class="pointer"
+                        (click)="reportComment(comment,i)">info</mat-icon>
+                    <mat-icon *ngIf="comment.data.reported" style="color:black">info</mat-icon>
+                </div>
+                <div class="left-li">
+                    <mat-icon>person</mat-icon>
+                </div>
+                <div>
+                    <h2>{{comment.user.name}}</h2>
+                    <p>{{comment.data.content}} </p>
+                    <app-comment-form *ngIf="this.activeComment === comment.data.id"
+                        [initialText]="comment.data.content" (handleSubmit)="
+                        updateComment($event, comment.data)">
+                    </app-comment-form>
+                </div>
+        </div>
     </ul>
 </main>

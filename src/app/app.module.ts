@@ -28,6 +28,9 @@ import { HeaderComponent } from './Components/header/header.component';
 import { HomeComponent } from './Components/home/home.component';
 import { PostComponent } from './Components/post/post.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommentFormComponent } from './Components/comment-form/comment-form.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,9 +39,11 @@ import { PostComponent } from './Components/post/post.component';
     HeaderComponent,
     HomeComponent,
     PostComponent,
+    CommentFormComponent,
   ],
   imports: [
     HttpClientModule,
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

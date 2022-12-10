@@ -8,14 +8,14 @@ import { Observable } from 'rxjs';
 export class CommentService {
   constructor(private http: HttpClient) {}
 
-  createComment(post: any): Observable<any> {
-    return this.http.post('http://localhost:8000/api/comment', post);
+  createComment(comment: any): Observable<any> {
+    return this.http.post('http://localhost:8000/api/comment', comment);
   }
-  deleteComment(id: string): Observable<any> {
+  deleteComment(id: number): Observable<any> {
     return this.http.delete('http://localhost:8000/api/comment/' + id);
   }
-  updateComment(post: any, id: string): Observable<any> {
-    return this.http.put('http://localhost:8000/api/comment/' + id, post);
+  updateComment(comment: any, id: number): Observable<any> {
+    return this.http.put('http://localhost:8000/api/comment/' + id, comment);
   }
   getComment(id: string): Observable<any> {
     return this.http.get('http://localhost:8000/api/comment/' + id);

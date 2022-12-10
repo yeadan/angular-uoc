@@ -28,9 +28,9 @@ export class LoginComponent {
     const user = { email: this.email, password: this.password };
 
     this.userService.login(user).subscribe({
-      next: (data) => {
-        console.log(data);
-        this.userService.setToken(data.data.msg);
+      next: (user) => {
+        console.log(user);
+        this.userService.setToken(user.data.msg);
         this.loginValid = true;
         this.message = '';
         const headerInfo: HeaderMenu = {
