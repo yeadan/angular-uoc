@@ -4,7 +4,9 @@
             <figure>
                 <img src="./image/{{post.image.src}}" alt="post photo">
                 <div class="comment-panel">
-                    <mat-icon class="pointer">favorite_border</mat-icon>
+                    <mat-icon *ngIf="this.likes&&!testLike()" class="pointer"
+                        (click)="createLike()">favorite_border</mat-icon>
+                    <mat-icon *ngIf="this.likes&&testLike()" class="pointer" (click)="deleteLike()">favorite</mat-icon>
                     <mat-icon (click)="isEditing(0,'post')" class="pointer">insert_comment</mat-icon>
                     <mat-icon *ngIf="!post.data.reported" class="pointer" (click)="reportPost(post)">info</mat-icon>
                     <mat-icon *ngIf="post.data.reported" style="color:black">info</mat-icon>
@@ -35,7 +37,7 @@
                 <div class="right-li">
                     <mat-icon *ngIf="!comment.data.reported && comment.user.id == this.actual"
                         (click)="isEditing(comment.data.id,'comment')" class=" pointer">edit</mat-icon>
-                    <mat-icon *ngIf="comment.user.admin||comment.user.id == this.actual"
+                    <mat-icon *ngIf="this.actual&&this.actual.admin||comment.user.id == this.actual"
                         (click)="delete(comment.data.id,i)" class="pointer">delete</mat-icon>
 
                     <mat-icon *ngIf="!comment.data.reported" class="pointer"

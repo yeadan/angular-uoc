@@ -2,8 +2,10 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Comment } from 'src/app/Models/comment';
+import { Like } from 'src/app/Models/like';
 import { Post } from 'src/app/Models/post';
 import { CommentService } from 'src/app/Services/comment.service';
+import { LikeService } from 'src/app/Services/like.service';
 import { PostService } from 'src/app/Services/post.service';
 import { UserService } from 'src/app/Services/user.service';
 
@@ -15,17 +17,21 @@ import { UserService } from 'src/app/Services/user.service';
 export class PostComponent {
   activeComment: any = -1;
   activePost: boolean = false;
+  isLiked: boolean = false;
   private postId: string | null;
   post: any;
   comments: any;
-  actual: number = 0;
+  actual: any;
   form!: FormGroup;
+  likes: any;
+  actualLike: any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private postService: PostService,
     private commentService: CommentService,
     private userService: UserService,
+    private likeService: LikeService,
     private formBuilder: FormBuilder
   ) {
     this.postId = this.activatedRoute.snapshot.paramMap.get('id');
@@ -48,7 +54,40 @@ export class PostComponent {
     });
     this.userService.actualUser().subscribe({
       next: (user) => {
-        this.actual = user.id;
+        this.actual = user;
+      },
+    });
+    this.likeService.postLikes(this.postId!).subscribe({
+      next: (data) => {
+        this.likes = data;
+      },
+    });
+  }
+  testLike(): boolean {
+    let mylike = this.likes.find(
+      (e: { user_id: number }) => e.user_id === this.actual.id
+    );
+    if (mylike) {
+      this.actualLike = mylike;
+      return true;
+    } else return false;
+  }
+  deleteLike() {
+    this.likeService.deleteLike(this.actualLike.id).subscribe({
+      next: () => {
+        this.likes.splice(this.actualLike, 1);
+        this.post.data.num_likes -= 1;
+      },
+    });
+  }
+  createLike() {
+    let dataLike = new Like(this.actual.id, this.post.data.id);
+    this.likeService.createLike(dataLike).subscribe({
+      next: (data) => {
+        this.actualLike = data.data;
+        this.likes.push(this.actualLike);
+        console.log(this.likes);
+        this.post.data.num_likes += 1;
       },
     });
   }
@@ -81,7 +120,7 @@ export class PostComponent {
     let upComment: Comment = report.data;
     upComment.reported = true;
     upComment.content = report.data.content;
-    upComment.reported_by = this.actual;
+    upComment.reported_by = this.actual.id;
     console.log(upComment);
     this.commentService.updateComment(upComment, upComment.id!).subscribe({
       next: () => {
@@ -90,7 +129,7 @@ export class PostComponent {
     });
   }
   createComment(text: string, id: number): void {
-    let comment = new Comment(text, this.actual, id);
+    let comment = new Comment(text, this.actual.id, id);
     this.commentService.createComment(comment).subscribe({
       next: (data) => {
         this.activePost = false;
@@ -101,7 +140,7 @@ export class PostComponent {
   reportPost(report: any): void {
     let upPost: Post = report.data;
     upPost.reported = true;
-    upPost.reported_by = this.actual;
+    upPost.reported_by = this.actual.id;
     this.postService.editPost(upPost, upPost.id!).subscribe({
       next: () => {
         console.log(upPost);
