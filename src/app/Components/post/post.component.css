@@ -17,6 +17,7 @@
     margin:auto;
     display: grid;
     padding: 1rem;
+    max-width: 600px;
   }
   .container-li {
     margin:auto;
@@ -105,6 +106,7 @@
   }
   .list-posts img {
     grid-area: image;
+
   }
   .list-posts figcaption {
     grid-area: figcaption;

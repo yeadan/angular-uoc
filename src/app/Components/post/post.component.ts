@@ -86,7 +86,6 @@ export class PostComponent {
       next: (data) => {
         this.actualLike = data.data;
         this.likes.push(this.actualLike);
-        console.log(this.likes);
         this.post.data.num_likes += 1;
       },
     });

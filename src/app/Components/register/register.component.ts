@@ -23,10 +23,8 @@ export class RegisterComponent {
       email: this.email,
       password: this.password,
     };
-    this.userService.register(user).subscribe((data) => {
-      console.log(data);
-      this.userService.setToken(data.token);
-      this.router.navigateByUrl('/');
+    this.userService.register(user).subscribe(() => {
+      this.router.navigateByUrl('/login');
     });
   }
 }

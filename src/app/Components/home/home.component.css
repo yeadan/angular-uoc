@@ -16,6 +16,7 @@ span  {
   margin:auto;
   display: grid;
   padding: 1rem;
+  max-width: 600px;
 }
 
 .container ul {
