@@ -48,9 +48,4 @@ export class LoginComponent {
       },
     });
   }
-  /* actualUser(): void {
-    this.userService.actualUser().subscribe((data) => {
-      this.actual = data.name;
-    });
-  }*/
 }

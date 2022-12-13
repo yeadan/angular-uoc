@@ -15,7 +15,7 @@ export class RegisterComponent {
 
   constructor(public userService: UserService, public router: Router) {}
 
-  register() {
+  register(): void {
     if (this.password != this.confirmPassword) return;
 
     const user = {

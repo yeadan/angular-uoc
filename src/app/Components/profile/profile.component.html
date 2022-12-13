@@ -1,0 +1,24 @@
+<div class="profile">
+    <mat-card>
+        <mat-card-content>
+            <form #registerForm="ngForm" (ngSubmit)="updateUser()">
+                <h1>Profile</h1>
+                <mat-form-field>
+                    <input matInput type="name" [(ngModel)]="name" name="name" placeholder="Name" required="required" />
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="email" [(ngModel)]="email" name="email" placeholder="Email"
+                        required="required" />
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="password" [(ngModel)]="password" name="password" placeholder="Password" />
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="password" [(ngModel)]="confirmPassword" name="password"
+                        placeholder="Repeat the password" />
+                </mat-form-field>
+                <button mat-raised-button color="primary" [disabled]="!registerForm.form.valid">Update</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

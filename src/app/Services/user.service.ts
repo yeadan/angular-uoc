@@ -18,6 +18,9 @@ export class UserService {
   actualUser(): Observable<any> {
     return this.http.get('http://localhost:8000/api/user');
   }
+  updateUser(id: number, user: any): Observable<any> {
+    return this.http.put('http://localhost:8000/api/user/' + id, user);
+  }
   getUser(id: number): Observable<any> {
     return this.http.get('http://localhost:8000/api/user/' + id);
   }
