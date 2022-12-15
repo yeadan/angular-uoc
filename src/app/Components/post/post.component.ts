@@ -17,6 +17,7 @@ import { UserService } from 'src/app/Services/user.service';
 export class PostComponent {
   activeComment: any = -1;
   activePost: boolean = false;
+  activeMain: boolean = false;
   isLiked: boolean = false;
   private postId: string | null;
   post: any;
@@ -97,6 +98,7 @@ export class PostComponent {
       else this.activeComment = -1;
     }
     if (data === 'post') this.activePost = !this.activePost;
+    if (data == 'main') this.activeMain = !this.activeMain;
   }
   delete(comment: any, index: number): void {
     this.commentService.deleteComment(comment).subscribe({
@@ -111,6 +113,16 @@ export class PostComponent {
     this.commentService.updateComment(comment, comment.id).subscribe({
       next: (data) => {
         this.activeComment = -1;
+        console.log('updated! ', data);
+      },
+    });
+  }
+  updatePost(content: any, post: any): void {
+    post.title = content.title;
+    post.description = content.description;
+    this.postService.editPost(post, post.id).subscribe({
+      next: (data) => {
+        this.activeMain = false;
         console.log('updated! ', data);
       },
     });

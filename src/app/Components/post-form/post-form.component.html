@@ -1,0 +1,7 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <textarea class="post-form-textarea" formControlName="title"></textarea>
+  <textarea class="post-form-textarea" formControlName="description"></textarea>
+  <button class="post-form-button pointer" type="submit" [disabled]="form.invalid">
+    Aceptar
+  </button>
+</form>

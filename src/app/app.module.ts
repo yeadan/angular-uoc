@@ -31,6 +31,7 @@ import { PostComponent } from './Components/post/post.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommentFormComponent } from './Components/comment-form/comment-form.component';
 import { ProfileComponent } from './Components/profile/profile.component';
+import { PostFormComponent } from './Components/post-form/post-form.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { ProfileComponent } from './Components/profile/profile.component';
     PostComponent,
     CommentFormComponent,
     ProfileComponent,
+    PostFormComponent,
   ],
   imports: [
     HttpClientModule,
