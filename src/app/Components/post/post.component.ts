@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Comment } from 'src/app/Models/comment';
 import { Like } from 'src/app/Models/like';
 import { Post } from 'src/app/Models/post';
@@ -33,7 +33,8 @@ export class PostComponent {
     private commentService: CommentService,
     private userService: UserService,
     private likeService: LikeService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {
     this.postId = this.activatedRoute.snapshot.paramMap.get('id');
   }
@@ -99,6 +100,13 @@ export class PostComponent {
     }
     if (data === 'post') this.activePost = !this.activePost;
     if (data == 'main') this.activeMain = !this.activeMain;
+  }
+  deletePost(post: number): void {
+    this.postService.deletePost(post).subscribe({
+      next: () => {
+        this.router.navigateByUrl('home');
+      },
+    });
   }
   delete(comment: any, index: number): void {
     this.commentService.deleteComment(comment).subscribe({

@@ -9,6 +9,8 @@
           <mat-icon (click)="isEditing(0,'post')" class="pointer">insert_comment</mat-icon>
           <mat-icon *ngIf="this.actual&&post.user.id == this.actual.id" (click)="isEditing(0,'main')"
             class=" pointer">edit</mat-icon>
+          <mat-icon *ngIf="this.actual&&this.actual.admin||this.actual&&post.user.id == this.actual.id"
+            (click)="deletePost(post.data.id)" class="pointer">delete</mat-icon>
           <mat-icon *ngIf="!post.data.reported" class="pointer" (click)="reportPost(post)">info</mat-icon>
           <mat-icon *ngIf="post.data.reported" style="color:black">info</mat-icon>
           <h4>{{post.data.num_likes}} <span>Me gusta</span></h4>

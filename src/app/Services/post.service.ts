@@ -11,7 +11,7 @@ export class PostService {
   addPost(post: any): Observable<any> {
     return this.http.post('http://localhost:8000/api/post', post);
   }
-  deletePost(id: string): Observable<any> {
+  deletePost(id: number): Observable<any> {
     return this.http.delete('http://localhost:8000/api/post/' + id);
   }
   editPost(post: any, id: number): Observable<any> {
