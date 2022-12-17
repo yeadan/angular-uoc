@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CreatePostComponent } from './Components/create-post/create-post.component';
 import { HomeComponent } from './Components/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
 import { PostComponent } from './Components/post/post.component';
@@ -33,6 +34,11 @@ const routes: Routes = [
   {
     path: 'post/:id',
     component: PostComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'createpost',
+    component: CreatePostComponent,
     canActivate: [AuthGuard],
   },
 ];

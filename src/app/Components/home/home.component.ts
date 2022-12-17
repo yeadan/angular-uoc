@@ -23,4 +23,7 @@ export class HomeComponent {
   goPost(id: string): void {
     this.router.navigateByUrl('/post/' + id);
   }
+  createPost(): void {
+    this.router.navigateByUrl('/createpost');
+  }
 }

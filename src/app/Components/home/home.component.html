@@ -1,22 +1,29 @@
 <main class="list-posts">
-  <ul *ngFor="let post of Posts" class="container">
-    <li (click)="goPost(post.id)">
-      <figure>
-        <img src="./image/{{post.all.image.src}}" alt="post photo">
-        <figcaption>
-          <div class="author">
-            <cite>{{post.title}}</cite>
-            <div class="block">
-              <blockquote>
-                <p lang="es">
-                  {{post.description}}
-                </p>
-              </blockquote>
-              <p>{{post.all.user.name}} ({{post.all.user.email}})</p>
+  <div class="container">
+
+    <div>
+      <h1 class="list-posts-title">Posts</h1>
+      <div class="list-posts-icon" (click)="createPost()"><mat-icon>add</mat-icon></div>
+    </div>
+    <ul *ngFor="let post of Posts">
+      <li (click)="goPost(post.id)">
+        <figure>
+          <img src="./image/{{post.all.image.src}}" alt="post photo">
+          <figcaption>
+            <div class="author">
+              <cite>{{post.title}}</cite>
+              <div class="block">
+                <blockquote>
+                  <p>
+                    {{post.description}}
+                  </p>
+                </blockquote>
+                <p>{{post.all.user.email}}</p>
+              </div>
             </div>
-          </div>
-        </figcaption>
-      </figure>
-    </li>
-  </ul>
+          </figcaption>
+        </figure>
+      </li>
+    </ul>
+  </div>
 </main>

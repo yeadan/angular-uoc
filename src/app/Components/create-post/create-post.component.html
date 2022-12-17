@@ -1,0 +1,24 @@
+<div class="createPost">
+  <mat-card>
+    <mat-card-content>
+      <form #createPostForm="ngForm" (ngSubmit)="createImage()">
+        <h2>Create Post</h2>
+        <mat-form-field>
+          <input matInput placeholder="Title" [(ngModel)]="title" name="title" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Description</mat-label>
+          <textarea matInput placeholder="Description" [(ngModel)]="description" name="description"></textarea>
+        </mat-form-field>
+        <button type="button" mat-raised-button (click)="fileInput.click()">Subir Imagen</button>
+        <input hidden (change)="fileEvent($event)" #fileInput type="file">
+        <span class="file-name">{{selectedFile?.name}}</span>
+        <br><br>
+        <button mat-raised-button color="primary" [disabled]="!createPostForm.form.valid">Aceptar</button>
+      </form>
+    </mat-card-content>
+    <div class="error">
+      <p>{{message}}</p>
+    </div>
+  </mat-card>
+</div>

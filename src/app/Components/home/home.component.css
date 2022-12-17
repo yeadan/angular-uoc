@@ -35,14 +35,14 @@ span  {
 }
 
 .block >p {
-  font-size: 1.45rem;
+  font-size: 1.25rem;
   font-weight: 800;
 }
 .block >p::before {
       display: inline-block;
       content: "";
       border-top: .35rem solid rgb(64, 81, 181);
-      width: 1.75rem;
+      width: 1.45rem;
       margin-right: 0.25rem;
       transform: translateY(-0rem);
 }
@@ -82,10 +82,24 @@ span  {
 .list-posts {
   padding-bottom: 2rem;
 }
+.list-posts-icon mat-icon {
+  cursor: pointer;
+  transform: scale(1.5);
+  color:rgb(64, 81, 181);
+}
 /* Diseño mobile first, diseñamos para móvil y ya cambiamos para otros tamaños */
 [class*="col-"] {
   width: 100%;
   text-align: center;
+}
+.list-posts-title {
+  text-align: left;
+  float: left;
+}
+.list-posts-icon {
+
+  text-align: right;
+  max-width: 600px;
 }
 
 @media screen and (min-width: 1024px) {
@@ -156,6 +170,19 @@ span  {
       padding: 1rem;
       height:9rem;
       width:16rem;
+  }
+ .list-posts-title {
+    padding: 1rem;
+    text-align: left;
+  }
+  .list-posts-icon {
+    padding: 1.5rem;
+    padding-bottom: 0;
+    text-align: right;
+    max-width: 650px;
+  }
+  .list-posts-icon mat-icon {
+    transform: scale(1.5);
   }
 
 }

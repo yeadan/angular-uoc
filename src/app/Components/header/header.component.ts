@@ -49,12 +49,8 @@ export class HeaderComponent {
     this.router.navigateByUrl('register');
   }
 
-  adminPosts(): void {
-    this.router.navigateByUrl('posts');
-  }
-
-  adminCategories(): void {
-    this.router.navigateByUrl('categories');
+  admin(): void {
+    this.router.navigateByUrl('home');
   }
 
   profile(): void {
