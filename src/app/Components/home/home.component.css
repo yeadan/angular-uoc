@@ -98,24 +98,14 @@ span  {
 }
 .list-posts-icon {
 
-  text-align: right;
-  max-width: 600px;
+  text-align: left;
+  padding: 0.25rem 1.25rem 0rem 5rem;
+
 }
 
 @media screen and (min-width: 1024px) {
 /* Haremos el cambio cuando sea mayor de 1024 */
 
-  .col-3 {
-      grid-template-columns: repeat(3, 1fr);
-  }
-  .col-2 {
-      grid-template-columns: repeat(2, 1fr);
-      grid-column-start: 1;
-      display: grid;
-  }
-  .col-row {
-      grid-template-columns: 24% 76%;
-  }
   .author cite {
     font-size: 2.0rem;
     line-height: 2.0rem;
@@ -129,15 +119,15 @@ span  {
       text-align: left;
       padding-bottom: 0;
   }
-  .list-posts .container {
+  .container {
       padding: 0;
   }
   .list-posts h1 {
       padding-left: 0;
   }
   .list-posts {
-      padding-left: 15%;
-      padding-right: 15%;
+      padding-left: 0;
+      padding-right: 20%;
       padding-bottom: 5rem;
   }
   .list-posts .author {
@@ -176,11 +166,11 @@ span  {
     text-align: left;
   }
   .list-posts-icon {
-    padding: 1.5rem;
-    padding-bottom: 0;
-    text-align: right;
-    max-width: 650px;
+    text-align: left;
+    padding: 1.25rem 1.25rem 0rem 5rem;
+
   }
+
   .list-posts-icon mat-icon {
     transform: scale(1.5);
   }

@@ -1,9 +1,8 @@
 <main class="list-posts">
   <div class="container">
-
     <div>
       <h1 class="list-posts-title">Posts</h1>
-      <div class="list-posts-icon" (click)="createPost()"><mat-icon>add</mat-icon></div>
+      <div class="list-posts-icon" (click)="createPost()"><mat-icon title="Crear Post">add</mat-icon></div>
     </div>
     <ul *ngFor="let post of Posts">
       <li (click)="goPost(post.id)">
