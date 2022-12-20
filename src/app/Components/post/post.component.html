@@ -40,13 +40,12 @@
   </ul>
   <ul class="container-li" *ngFor="let comment of comments; let i = index">
     <div class="comment-li">
-      <li>
+      <li *ngIf="comment">
         <div class="right-li">
-          <mat-icon *ngIf="!comment.data.reported && comment.user.id == this.actual"
-            (click)="isEditing(comment.data.id,'comment')" class=" pointer">edit</mat-icon>
+          <mat-icon *ngIf="this.actual&&comment.data.reported === 0 && comment.user.id === this.actual.id"
+            (click)="isEditing(comment.data.id,'comment')" class="pointer">edit</mat-icon>
           <mat-icon *ngIf="this.actual&&this.actual.admin||this.actual&&comment.user.id == this.actual.id"
             (click)="delete(comment.data.id,i)" class="pointer">delete</mat-icon>
-
           <mat-icon *ngIf="!comment.data.reported" class="pointer" (click)="reportComment(comment,i)">info</mat-icon>
           <mat-icon *ngIf="comment.data.reported" style="color:black">info</mat-icon>
         </div>
