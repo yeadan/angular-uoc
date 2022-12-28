@@ -2,7 +2,7 @@
   <ul class="container">
     <li *ngIf="post">
       <figure>
-        <img src="./image/{{post.image.src}}" alt="post photo">
+        <img src="./image/{{post.image.src}}" alt="foto post {{post.data.id}}">
         <div class="comment-panel">
           <mat-icon title="Me gusta" *ngIf="this.likes&&!testLike()" class="pointer"
             (click)="createLike()">favorite_border</mat-icon>
@@ -53,7 +53,8 @@
             (click)="delete(comment.data.id,i)" class="pointer">delete</mat-icon>
           <mat-icon title="Reportar" *ngIf="!comment.data.reported" class="pointer"
             (click)="reportComment(comment,i)">info</mat-icon>
-          <mat-icon title="En revisión" *ngIf="comment.data.reported" style="color:black">info</mat-icon>
+          <mat-icon title="En revisión" *ngIf="comment.data.reported" (click)="unReportComment(comment,i)"
+            style="color:black">info</mat-icon>
         </div>
         <div class="left-li">
           <mat-icon>person</mat-icon>

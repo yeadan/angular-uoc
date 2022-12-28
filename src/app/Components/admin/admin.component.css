@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+main {
+  font-family: 'Alegreya', serif;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+td {
+  cursor: pointer;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.comments {
+  margin-top: 5%;
+}
+
+span  {
+  font-style: italic;
+}
+mat-grid-tile {
+  padding: 2rem;
+}
+.container {
+  text-align: center;
+  margin:auto;
+  padding: 1rem;
+}
+
+ li {
+  padding-bottom: 0;
+  list-style: none;
+  cursor: pointer;
+  display:inline-block;
+}
+
+/* Diseño mobile first, diseñamos para móvil y ya cambiamos para otros tamaños */
+
+
+@media screen and (min-width: 1024px) {
+/* Haremos el cambio cuando sea mayor de 1024 */
+
+
+
+
+}

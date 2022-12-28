@@ -32,6 +32,7 @@ import { HomeComponent } from './Components/home/home.component';
 import { PostFormComponent } from './Components/post-form/post-form.component';
 import { PostComponent } from './Components/post/post.component';
 import { ProfileComponent } from './Components/profile/profile.component';
+import { AdminComponent } from './Components/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { ProfileComponent } from './Components/profile/profile.component';
     ProfileComponent,
     PostFormComponent,
     CreatePostComponent,
+    AdminComponent,
   ],
   imports: [
     HttpClientModule,

@@ -7,7 +7,7 @@
     <ul *ngFor="let post of Posts">
       <li (click)="goPost(post.id)">
         <figure>
-          <img src="./image/{{post.all.image.src}}" alt="post photo">
+          <img src="./image/{{post.all.image.src}}" alt="foto post {{post.all.data.id}}">
           <figcaption>
             <div class="author">
               <cite>{{post.title}}</cite>

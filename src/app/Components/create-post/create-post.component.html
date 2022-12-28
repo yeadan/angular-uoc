@@ -2,12 +2,12 @@
   <mat-card>
     <mat-card-content>
       <form #createPostForm="ngForm" (ngSubmit)="createImage()">
-        <h2>Create Post</h2>
+        <h2>Crear Post</h2>
         <mat-form-field>
-          <input matInput placeholder="Title" [(ngModel)]="title" name="title" required>
+          <input matInput placeholder="Título" [(ngModel)]="title" name="title" required>
         </mat-form-field>
         <mat-form-field appearance="fill">
-          <mat-label>Description</mat-label>
+          <mat-label>Descripción</mat-label>
           <textarea matInput placeholder="Description" [(ngModel)]="description" name="description"></textarea>
         </mat-form-field>
         <button type="button" mat-raised-button (click)="fileInput.click()">Subir Imagen</button>

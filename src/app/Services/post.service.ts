@@ -23,6 +23,9 @@ export class PostService {
   listPostPublic(): Observable<any> {
     return this.http.get('http://localhost:8000/api/post?public');
   }
+  listPostReported(): Observable<any> {
+    return this.http.get('http://localhost:8000/api/post?reported');
+  }
   listPost(): Observable<any> {
     return this.http.get('http://localhost:8000/api/post');
   }

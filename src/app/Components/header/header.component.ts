@@ -50,7 +50,7 @@ export class HeaderComponent {
   }
 
   admin(): void {
-    this.router.navigateByUrl('home');
+    this.router.navigateByUrl('admin');
   }
 
   profile(): void {

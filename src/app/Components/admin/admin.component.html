@@ -1,0 +1,42 @@
+<main>
+  <div class="container">
+    <div *ngIf="Posts && Posts.length >0">
+      <h1 class="">Posts reportados</h1>
+      <table>
+        <tr>
+          <th>Titulo</th>
+          <th>Descripcion</th>
+          <th>Autor</th>
+        </tr>
+        <tr *ngFor="let post of Posts">
+          <td (click)="goPost(post.id)">{{post.title}}</td>
+          <td (click)="goPost(post.id)">{{post.description}} </td>
+          <td (click)="goPost(post.id)"> {{post.all.user.email}}</td>
+        </tr>
+      </table>
+    </div>
+    <div *ngIf="!Posts || Posts.length <1" class="comments">
+      <h1 class="">No hay posts reportados</h1>
+    </div>
+
+    <div *ngIf="Comments && Comments.length >0" class="comments">
+      <h1 class="">Comentarios reportados</h1>
+      <table>
+        <tr>
+          <th>Post</th>
+          <th>Comentario</th>
+          <th>Autor</th>
+        </tr>
+        <tr *ngFor="let comment of Comments">
+          <td (click)="goPost(comment.data.post_id)">{{comment.post.title}}</td>
+          <td (click)="goPost(comment.data.post_id)">{{comment.data.content}} </td>
+          <td (click)="goPost(comment.data.post_id)"> {{comment.user.email}}</td>
+        </tr>
+      </table>
+    </div>
+    <div *ngIf="!Comments || Comments.length <1" class="comments">
+      <h1 class="">No hay comentarios reportados</h1>
+    </div>
+
+  </div>
+</main>

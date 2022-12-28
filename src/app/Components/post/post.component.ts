@@ -135,6 +135,22 @@ export class PostComponent {
       },
     });
   }
+
+  unReportComment(report: any, index: number): void {
+    if (this.actual.admin) {
+      let upComment: Comment = report.data;
+      upComment.reported = false;
+      upComment.content = report.data.content;
+      upComment.reported_by = this.actual.id;
+      console.log(upComment);
+      this.commentService.updateComment(upComment, upComment.id!).subscribe({
+        next: () => {
+          this.comments[index] = report;
+        },
+      });
+    }
+  }
+
   reportComment(report: any, index: number): void {
     let upComment: Comment = report.data;
     upComment.reported = true;

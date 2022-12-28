@@ -26,4 +26,7 @@ export class CommentService {
   listComments(): Observable<any> {
     return this.http.get('http://localhost:8000/api/comment');
   }
+  listCommentsReported(): Observable<any> {
+    return this.http.get('http://localhost:8000/api/comment?reported');
+  }
 }
