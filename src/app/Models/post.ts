@@ -7,7 +7,7 @@ export class Post {
   num_likes: number;
   user_id: number;
   image_id: number;
-  reported_by?: number;
+  reported_by?: number | null;
   created_at?: Date;
   updated_at?: Date;
 

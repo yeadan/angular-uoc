@@ -1,5 +1,5 @@
 <main>
-  <div class="container">
+  <div class="container" *ngIf="this.actual && this.actual.admin == 1; else noAdmin">
     <div *ngIf="Posts && Posts.length >0">
       <h1 class="">Posts reportados</h1>
       <table>
@@ -37,6 +37,12 @@
     <div *ngIf="!Comments || Comments.length <1" class="comments">
       <h1 class="">No hay comentarios reportados</h1>
     </div>
-
   </div>
 </main>
+<ng-template #noAdmin>
+  <mat-card *ngIf="this.actual" class="container">
+    <mat-card-content>
+      <h4>Todos los puestos de administrador están ocupados, gracias!</h4>
+    </mat-card-content>
+  </mat-card>
+</ng-template>

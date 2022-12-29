@@ -3,26 +3,17 @@
     <mat-card-content>
       <form #loginForm="ngForm" (ngSubmit)="login()">
         <h2>Login</h2>
-        <mat-error *ngIf="!loginValid">
-          No se reconocen usuario y contraseña
-        </mat-error>
         <mat-form-field>
           <input matInput placeholder="Email" [(ngModel)]="email" name="email" required autocomplete="on">
-          <mat-error>
-            Dirección de email incorrecta
-          </mat-error>
         </mat-form-field>
         <mat-form-field>
           <input matInput type="password" placeholder="Contraseña" [(ngModel)]="password" name="password" required
             autocomplete="on">
-          <mat-error>
-            Password inválido
-          </mat-error>
         </mat-form-field>
         <button mat-raised-button color="primary" [disabled]="!loginForm.form.valid">Login</button>
       </form>
     </mat-card-content>
-    <div class="error">
+    <div [ngClass]="{'fade-in': loginFail, 'fade-out': !loginFail}" class="error">
       <p>{{message}}</p>
     </div>
   </mat-card>

@@ -141,7 +141,7 @@ export class PostComponent {
       let upComment: Comment = report.data;
       upComment.reported = false;
       upComment.content = report.data.content;
-      upComment.reported_by = this.actual.id;
+      upComment.reported_by = null;
       console.log(upComment);
       this.commentService.updateComment(upComment, upComment.id!).subscribe({
         next: () => {
@@ -181,5 +181,17 @@ export class PostComponent {
         console.log(upPost);
       },
     });
+  }
+  unReportPost(report: any): void {
+    if (this.actual.admin) {
+      let upPost: Post = report.data;
+      upPost.reported = false;
+      upPost.reported_by = null;
+      this.postService.editPost(upPost, upPost.id!).subscribe({
+        next: () => {
+          console.log(upPost);
+        },
+      });
+    }
   }
 }

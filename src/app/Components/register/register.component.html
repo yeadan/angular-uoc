@@ -1,24 +1,26 @@
 <div class="register">
   <mat-card>
     <mat-card-content>
-      <form #registerForm="ngForm" (ngSubmit)="register()">
+      <form [formGroup]="form" (ngSubmit)="register()">
         <h1>Registro</h1>
         <mat-form-field>
-          <input matInput type="name" [(ngModel)]="name" name="name" placeholder="Nombre" required="required" />
+          <input matInput type="text" formControlName="name" placeholder="Nombre" required="required" />
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="email" [(ngModel)]="email" name="email" placeholder="Email" required="required" />
+          <input matInput type="email" formControlName="email" placeholder="Email" required="required" />
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="password" [(ngModel)]="password" name="password" placeholder="Contraseña"
+          <input matInput type="password" formControlName="password" placeholder="Contraseña" required="required" />
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="password" formControlName="passwordConfirm" placeholder="Repite la contraseña"
             required="required" />
         </mat-form-field>
-        <mat-form-field>
-          <input matInput type="password" [(ngModel)]="confirmPassword" name="password"
-            placeholder="Repite la contraseña" required="required" />
-        </mat-form-field>
-        <button mat-raised-button color="primary" [disabled]="!registerForm.form.valid">Registro</button>
+        <button mat-raised-button color="primary">Registro</button>
       </form>
     </mat-card-content>
+    <div [ngClass]="{'fade-in': registerFail, 'fade-out': !registerFail}" class="error">
+      <p>{{message}}</p>
+    </div>
   </mat-card>
 </div>

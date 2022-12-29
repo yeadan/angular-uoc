@@ -15,7 +15,8 @@
             (click)="deletePost(post.data.id)" class="pointer">delete</mat-icon>
           <mat-icon title="Reportar" *ngIf="!post.data.reported" class="pointer"
             (click)="reportPost(post)">info</mat-icon>
-          <mat-icon title="En revisión" *ngIf="post.data.reported" style="color:black">info</mat-icon>
+          <mat-icon title="En revisión" *ngIf="post.data.reported" (click)="unReportPost(post)" style="
+            color:black">info</mat-icon>
           <h4>{{post.data.num_likes}} <span>Me gusta</span></h4>
         </div>
         <app-post-form *ngIf="this.activeMain" [initialTitle]="post.data.title"

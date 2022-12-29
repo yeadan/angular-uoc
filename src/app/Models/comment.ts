@@ -4,7 +4,7 @@ export class Comment {
   reported: boolean;
   user_id: number;
   post_id: number;
-  reported_by?: number;
+  reported_by?: number | null;
   created_at?: Date;
   updated_at?: Date;
 

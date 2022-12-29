@@ -10,10 +10,10 @@ import { UserService } from 'src/app/Services/user.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  public loginValid = true;
   email: string = '';
   password: string = '';
   public message: string = '';
+  loginFail: boolean = false;
 
   constructor(
     public userService: UserService,
@@ -24,14 +24,12 @@ export class LoginComponent {
   ngOnInit(): void {}
 
   login(): void {
-    this.loginValid = true;
     const user = { email: this.email, password: this.password };
 
     this.userService.login(user).subscribe({
       next: (user) => {
         console.log(user);
         this.userService.setToken(user.data.msg);
-        this.loginValid = true;
         this.message = '';
         const headerInfo: HeaderMenu = {
           showAuthSection: true,
@@ -43,8 +41,12 @@ export class LoginComponent {
       },
       error: (e) => {
         console.error('Error logging in', e);
-        if (e.error) this.message = e.error.data.msg;
+        this.loginFail = true;
+        if (e.error) this.message = e.error.error;
         else this.message = e.statusText;
+        setTimeout(() => {
+          this.loginFail = false;
+        }, 2000);
       },
     });
   }

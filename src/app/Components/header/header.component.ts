@@ -13,6 +13,7 @@ export class HeaderComponent {
   showAuth: boolean = false;
   showAuthSection: boolean;
   showNoAuthSection: boolean;
+  actual: any;
 
   constructor(
     private router: Router,
