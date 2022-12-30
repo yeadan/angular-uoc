@@ -3,12 +3,8 @@ mat-card {
   margin: 2em auto;
   text-align: center;
 }
-
 mat-form-field {
   display: block;
-}
-.error {
-  color:lightcoral;
 }
 .file-name {
   margin-left: 1rem;

@@ -3,12 +3,12 @@
   height: 80px;
   margin-bottom: 8px;
   margin-top: 8px;
-  border: 1px solid rgb(64, 81, 181);
+  border: 1px solid rgb(64,81,181);
 }
 .post-form-button {
   font-size: 14px;
   padding: 6px 12px;
-  background: rgb(64, 81, 181);
+  background: rgb(64,81,181);
   color: white;
   border-width: 0;
 }

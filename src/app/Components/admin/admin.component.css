@@ -11,9 +11,9 @@ table {
   width: 100%;
 }
 
-
-td, th {
-  border: 1px solid #dddddd;
+td, 
+th {
+  border: 1px solid #ddd;
   text-align: left;
   padding: 8px;
 }
@@ -22,14 +22,14 @@ td {
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: #ddd;
 }
 
 .comments {
   margin-top: 5%;
 }
 
-span  {
+span {
   font-style: italic;
 }
 mat-grid-tile {
@@ -46,15 +46,4 @@ mat-grid-tile {
   list-style: none;
   cursor: pointer;
   display:inline-block;
-}
-
-/* Diseño mobile first, diseñamos para móvil y ya cambiamos para otros tamaños */
-
-
-@media screen and (min-width: 1024px) {
-/* Haremos el cambio cuando sea mayor de 1024 */
-
-
-
-
 }
