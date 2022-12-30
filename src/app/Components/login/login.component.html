@@ -4,16 +4,16 @@
       <form #loginForm="ngForm" (ngSubmit)="login()">
         <h2>Login</h2>
         <mat-form-field>
-          <input matInput placeholder="Email" [(ngModel)]="email" name="email" required autocomplete="on">
+          <input name="email" matInput placeholder="Email" [(ngModel)]="email" required autocomplete="on">
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="password" placeholder="Contraseña" [(ngModel)]="password" name="password" required
+          <input name="password" matInput type="password" placeholder="Contraseña" [(ngModel)]="password" required
             autocomplete="on">
         </mat-form-field>
         <button mat-raised-button color="primary" [disabled]="!loginForm.form.valid">Login</button>
       </form>
     </mat-card-content>
-    <div [ngClass]="{'fade-in': loginFail, 'fade-out': !loginFail}" class="error">
+    <div class="error" [ngClass]="{'fade-in': loginFail, 'fade-out': !loginFail}">
       <p>{{message}}</p>
     </div>
   </mat-card>

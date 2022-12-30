@@ -15,11 +15,11 @@
         </tr>
       </table>
     </div>
-    <div *ngIf="!Posts || Posts.length <1" class="comments">
+    <div class="comments" *ngIf="!Posts || Posts.length <1" >
       <h1 class="">No hay posts reportados</h1>
     </div>
 
-    <div *ngIf="Comments && Comments.length >0" class="comments">
+    <div class="comments" *ngIf="Comments && Comments.length >0" >
       <h1 class="">Comentarios reportados</h1>
       <table>
         <tr>
@@ -34,13 +34,13 @@
         </tr>
       </table>
     </div>
-    <div *ngIf="!Comments || Comments.length <1" class="comments">
+    <div class="comments" *ngIf="!Comments || Comments.length <1" >
       <h1 class="">No hay comentarios reportados</h1>
     </div>
   </div>
 </main>
 <ng-template #noAdmin>
-  <mat-card *ngIf="this.actual" class="container">
+  <mat-card class="container" *ngIf="this.actual" >
     <mat-card-content>
       <h4>Todos los puestos de administrador están ocupados, gracias!</h4>
     </mat-card-content>

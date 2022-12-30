@@ -4,16 +4,16 @@
       <form #registerForm="ngForm" (ngSubmit)="updateUser()">
         <h1>Perfil</h1>
         <mat-form-field>
-          <input matInput type="name" [(ngModel)]="name" name="name" placeholder="Nombre" required="required" />
+          <input name="name" matInput type="name" [(ngModel)]="name" placeholder="Nombre" required="required" />
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="email" [(ngModel)]="email" name="email" placeholder="Email" required="required" />
+          <input name="email" matInput type="email" [(ngModel)]="email" placeholder="Email" required="required" />
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="password" [(ngModel)]="password" name="password" placeholder="Contraseña" />
+          <input name="password" matInput type="password" [(ngModel)]="password" placeholder="Contraseña" />
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="password" [(ngModel)]="confirmPassword" name="password"
+          <input name="confirmPassword" matInput type="password" [(ngModel)]="confirmPassword"
             placeholder="Repite la contraseña" />
         </mat-form-field>
         <button mat-raised-button color="primary" [disabled]="!registerForm.form.valid">Update</button>

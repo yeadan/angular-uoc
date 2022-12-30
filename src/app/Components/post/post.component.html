@@ -4,19 +4,19 @@
       <figure>
         <img src="./image/{{post.image.src}}" alt="foto post {{post.data.id}}">
         <div class="comment-panel">
-          <mat-icon title="Me gusta" *ngIf="this.likes&&!testLike()" class="pointer"
-            (click)="createLike()">favorite_border</mat-icon>
-          <mat-icon title="Ya no me gusta" *ngIf="this.likes&&testLike()" class="pointer"
-            (click)="deleteLike()">favorite</mat-icon>
-          <mat-icon title="Comentar" (click)="isEditing(0,'post')" class="pointer">insert_comment</mat-icon>
-          <mat-icon title="Editar" *ngIf="this.actual&&post.user.id == this.actual.id" (click)="isEditing(0,'main')"
-            class=" pointer">edit</mat-icon>
-          <mat-icon title="Borrar" *ngIf="this.actual&&this.actual.admin||this.actual&&post.user.id == this.actual.id"
-            (click)="deletePost(post.data.id)" class="pointer">delete</mat-icon>
-          <mat-icon title="Reportar" *ngIf="!post.data.reported" class="pointer"
-            (click)="reportPost(post)">info</mat-icon>
-          <mat-icon title="En revisión" *ngIf="post.data.reported" (click)="unReportPost(post)" style="
-            color:black">info</mat-icon>
+          <mat-icon class="pointer" *ngIf="this.likes&&!testLike()" 
+            (click)="createLike()" title="Me gusta">favorite_border</mat-icon>
+          <mat-icon class="pointer" *ngIf="this.likes&&testLike()" 
+            (click)="deleteLike()" title="Ya no me gusta">favorite</mat-icon>
+          <mat-icon class="pointer" (click)="isEditing(0,'post')" title="Comentar">insert_comment</mat-icon>
+          <mat-icon class="pointer" *ngIf="this.actual&&post.user.id == this.actual.id" (click)="isEditing(0,'main')"
+            title="Editar">edit</mat-icon>
+          <mat-icon class="pointer" *ngIf="this.actual&&this.actual.admin||this.actual&&post.user.id == this.actual.id"
+            (click)="deletePost(post.data.id)" title="Borrar">delete</mat-icon>
+          <mat-icon class="pointer" *ngIf="!post.data.reported"
+            (click)="reportPost(post)" title="Reportar">info</mat-icon>
+          <mat-icon *ngIf="post.data.reported" (click)="unReportPost(post)" style="
+            color:black" title="En revisión">info</mat-icon>
           <h4>{{post.data.num_likes}} <span>Me gusta</span></h4>
         </div>
         <app-post-form *ngIf="this.activeMain" [initialTitle]="post.data.title"
@@ -46,16 +46,16 @@
     <div class="comment-li">
       <li *ngIf="comment">
         <div class="right-li">
-          <mat-icon title="Editar"
+          <mat-icon class="pointer" 
             *ngIf="this.actual&&comment.data.reported === 0 && comment.user.id === this.actual.id"
-            (click)="isEditing(comment.data.id,'comment')" class="pointer">edit</mat-icon>
-          <mat-icon title="Borrar"
+            (click)="isEditing(comment.data.id,'comment')" title="Editar">edit</mat-icon>
+          <mat-icon class="pointer" 
             *ngIf="this.actual&&this.actual.admin||this.actual&&comment.user.id == this.actual.id"
-            (click)="delete(comment.data.id,i)" class="pointer">delete</mat-icon>
-          <mat-icon title="Reportar" *ngIf="!comment.data.reported" class="pointer"
-            (click)="reportComment(comment,i)">info</mat-icon>
-          <mat-icon title="En revisión" *ngIf="comment.data.reported" (click)="unReportComment(comment,i)"
-            style="color:black">info</mat-icon>
+            (click)="delete(comment.data.id,i)" title="Borrar">delete</mat-icon>
+          <mat-icon class="pointer" *ngIf="!comment.data.reported"
+            (click)="reportComment(comment,i)" title="Reportar">info</mat-icon>
+          <mat-icon *ngIf="comment.data.reported" (click)="unReportComment(comment,i)"
+            style="color:black" title="En revisión">info</mat-icon>
         </div>
         <div class="left-li">
           <mat-icon>person</mat-icon>
