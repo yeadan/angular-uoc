@@ -3,12 +3,8 @@ mat-card {
   margin: 2em auto;
   text-align: center;
 }
-mat-form-field {
-  display: block;
-}
-.error {
-  padding: 5%;
-}
+mat-form-field { display: block; }
+.error { padding: 5%; }
 .fade-in {
   opacity: 1;
   transition: opacity 1s;

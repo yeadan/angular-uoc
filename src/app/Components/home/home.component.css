@@ -3,31 +3,23 @@
   padding: 0;
   box-sizing: border-box;
 }
-main {
-  font-family: 'Alegreya', serif;
-}
-span {
-  font-style: italic;
-}
+main { font-family: 'Alegreya', serif; }
+span { font-style: italic; }
 .container {
-  text-align: center;
-  margin:auto;
   display: grid;
-  padding: 1rem;
   max-width: 600px;
+  padding: 1rem;
+  margin: auto;
+  text-align: center;
 }
-.container ul {
-  grid-column-start: 1;
-}
-.container figure img {
-  width: 100%;
-}
+.container ul { grid-column-start: 1; }
+.container figure img { width: 100%; }
 .author cite {
-  text-decoration: none;
-  font-style: normal;
   font-size: 2.8rem;
-  line-height: 2.8rem;
+  font-style: normal;
   font-weight: 800;
+  line-height: 2.8rem;
+  text-decoration: none;
 }
 .block >p {
   font-size: 1.25rem;
@@ -35,10 +27,10 @@ span {
 }
 .block >p::before {
   display: inline-block;
-  content: "";
-  border-top: .35rem solid rgb(64,81,181);
   width: 1.45rem;
   margin-right: .25rem;
+  border-top: .35rem solid rgb(64,81,181);
+  content: "";
   transform: translateY(-0rem);
 }
 .author blockquote {
@@ -50,44 +42,37 @@ span {
   font-style: italic;
 }
 .list-posts figcaption {
-  background: rgba(0,0,0,0.1);
   padding: 1rem;
+  background: rgba(0,0,0,0.1);
 }
 .list-posts figure {
   display: grid;
+  padding-bottom: 1.5rem;
   grid-template-areas:
       "figcaption"
       "image";
   text-align: left;
-  padding-bottom: 1.5rem;
 }
-.list-posts img {
-  grid-area: image;
-}
-.list-posts figcaption {
-  grid-area: figcaption;
-}
+.list-posts img { grid-area: image; }
+.list-posts figcaption { grid-area: figcaption; }
 .list-posts li {
   padding-bottom: 0;
   list-style: none;
   cursor: pointer;
 }
-.list-posts {
-  padding-bottom: 2rem;
-}
+.list-posts { padding-bottom: 2rem; }
 .list-posts-icon mat-icon {
+  color: rgb(64,81,181);
   cursor: pointer;
   transform: scale(1.5);
-  color: rgb(64,81,181);
 }
-
 .list-posts-title {
-  text-align: left;
   float: left;
+  text-align: left;
 }
 .list-posts-icon {
-  text-align: left;
   padding: .25rem 1.25rem 0 5rem;
+  text-align: left;
 }
 /* Diseño mobile first, diseñamos para móvil y ya cambiamos para otros tamaños */
 @media screen and (min-width: 1024px) {
@@ -98,18 +83,14 @@ span {
   }
   .list-posts figure {
     display: grid;
+    padding-bottom: 0;
     grid-template-areas:
         "figcaption image";
     grid-template-columns: auto 20rem;
     text-align: left;
-    padding-bottom: 0;
   }
-  .container {
-    padding: 0;
-  }
-  .list-posts h1 {
-    padding-left: 0;
-  }
+  .container { padding: 0; }
+  .list-posts h1 { padding-left: 0; }
   .list-posts {
     padding-left: 0;
     padding-right: 20%;
@@ -117,44 +98,42 @@ span {
   }
   .list-posts .author {
     display: grid;
+    padding-bottom: 0;
     grid-template-columns: 16rem auto;
     grid-gap: 15px;
     grid-template-areas:
         "cite bloque";
-    padding-bottom: 0;
   }
   .list-posts figcaption {
-    background-color: white;
     padding-left: 0;
     padding-bottom: 0;
+    background-color: white;
   }
   .list-posts img  {
-    padding: 1rem 1rem 0 0;
-    height: 10rem;
     width: auto;
+    height: 10rem;
+    padding: 1rem 1rem 0 0;
   }
   .list-posts .block {
+    min-width: 22rem;
+    padding: 0 1rem 0 1rem;
     grid-area: bloque;
     background-color: rgba(0,0,0,.1);
-    padding: 0 1rem 0 1rem;
-    min-width: 22rem;
   }
   .list-posts cite {
+    width: 16rem;
+    height: 9rem;
+    padding: 1rem;
     grid-area: cite;
     background-color: rgba(0,0,0,.1);
-    padding: 1rem;
-    height: 9rem;
-    width: 16rem;
   }
  .list-posts-title {
     padding: 1rem;
     text-align: left;
   }
   .list-posts-icon {
-    text-align: left;
     padding: 1.25rem 1.25rem 0 5rem;
+    text-align: left;
   }
-  .list-posts-icon mat-icon {
-    transform: scale(1.5);
-  }
+  .list-posts-icon mat-icon { transform: scale(1.5); }
 }

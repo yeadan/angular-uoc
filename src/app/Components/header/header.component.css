@@ -1,12 +1,9 @@
-
 .navegation button:hover {
-    background-color: #ddd;
     color: black;
+    background-color: #ddd;
 }
-.navegation span {
-    padding-right: 15px;
-}
+.navegation span { padding-right: 15px; }
 .navegation button.active {
-    background-color: #04AA6D;
     color: white;
+    background-color: #04AA6D;
 }

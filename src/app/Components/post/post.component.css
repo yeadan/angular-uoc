@@ -3,37 +3,29 @@
   padding: 0;
   box-sizing: border-box;
 }
-main {
-  font-family: 'Alegreya', serif;
-}
-span,p  {
-  font-style: italic;
-}
+main { font-family: 'Alegreya', serif; }
+span, p { font-style: italic; }
 .container {
-  text-align: center;
-  margin: auto;
   display: grid;
-  padding: 1rem;
   max-width: 600px;
+  padding: 1rem;
+  margin: auto;
+  text-align: center;
 }
 .container-li {
-  margin: auto;
   display: grid;
-  padding: 1rem;
   max-width: 600px;
+  padding: 1rem;
+  margin: auto;
 }
-.container ul {
-  grid-column-start: 1;
-}
-.container figure img {
-  width: 100%;
-}
+.container ul { grid-column-start: 1; }
+.container figure img { width: 100%; }
 .author cite {
-  text-decoration: none;
-  font-style: normal;
   font-size: 2.8rem;
-  line-height: 2.8rem;
+  font-style: normal;
   font-weight: 800;
+  line-height: 2.8rem;
+  text-decoration: none;
 }
 .block >p {
   font-size: 1.45rem;
@@ -41,22 +33,18 @@ span,p  {
 }
 .block >p::before {
   display: inline-block;
-  content: "";
-  border-top: .35rem solid rgb(64,81,181);
   width: 1.75rem;
   margin-right: .25rem;
+  border-top: .35rem solid rgb(64,81,181);
+  content: "";
   transform: translateY(-0rem);
 }
-mat-icon {
-  color:rgb(64,81,181);
-}
+mat-icon { color:rgb(64,81,181); }
 .comment-li {
-  background: rgba(0,0,0,.1);
   padding: 1%;
+  background: rgba(0,0,0,.1);
 }
-.right-li {
-  float: right;
-}
+.right-li { float: right; }
 .left-li {
   float: left;
   padding-top: .5%;
@@ -66,15 +54,11 @@ mat-icon {
   padding: 1%;
   padding-bottom: 0;
 }
-.comment-panel * {
-  margin-right: 1%;
-}
-.comment-panel h4 span {
-  letter-spacing: 1px;
-}
+.comment-panel * { margin-right: 1%; }
+.comment-panel h4 span { letter-spacing: 1px; }
 .comment-panel h4 {
-  letter-spacing: 5px;
   padding-left: 1%;
+  letter-spacing: 5px;
 }
 .author blockquote {
   padding-top: 1.5rem;
@@ -84,34 +68,20 @@ mat-icon {
   font-size: 1.185rem;
   font-style: italic;
 }
-.list-posts figcaption {
-  padding: 1rem;
-}
+.list-posts figcaption { padding: 1rem; }
 .list-posts figure {
   display: grid;
+  padding-bottom: .5rem;
   grid-template-areas:
       "figcaption"
       "image";
   text-align: left;
-  padding-bottom: .5rem;
   background: rgba(0,0,0,.1);
 }
-.list-posts img {
-  grid-area: image;
-}
-.list-posts figcaption {
-  grid-area: figcaption;
-}
+.list-posts img { grid-area: image; }
+.list-posts figcaption { grid-area: figcaption; }
 .list-posts li {
   padding-bottom: 0;
   list-style: none;
 }
-.list-posts {
-  padding-bottom: 2rem;
-}
-
-
-
-
-
-
+.list-posts { padding-bottom: 2rem; }

@@ -3,9 +3,5 @@ mat-card {
   margin: 2em auto;
   text-align: center;
 }
-mat-form-field {
-  display: block;
-}
-.file-name {
-  margin-left: 1rem;
-}
+mat-form-field { display: block; }
+.file-name { margin-left: 1rem; }
