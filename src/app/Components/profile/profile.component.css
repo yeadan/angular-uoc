@@ -4,3 +4,12 @@ mat-card {
   text-align: center;
 }
 mat-form-field { display: block; }
+.error { padding: 5%; }
+.fade-in {
+  opacity: 1;
+  transition: opacity 1s;
+}
+.fade-out {
+  opacity: 0;
+  transition: opacity .5s;
+}

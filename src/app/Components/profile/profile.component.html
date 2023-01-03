@@ -1,23 +1,25 @@
 <div class="profile">
   <mat-card>
     <mat-card-content>
-      <form #registerForm="ngForm" (ngSubmit)="updateUser()">
+      <form [formGroup]="form" (ngSubmit)="updateUser()">
         <h1>Perfil</h1>
         <mat-form-field>
-          <input name="name" matInput type="name" [(ngModel)]="name" placeholder="Nombre" required="required" />
+          <input matInput type="text" formControlName="name" placeholder="Nombre" required="required" />
         </mat-form-field>
         <mat-form-field>
-          <input name="email" matInput type="email" [(ngModel)]="email" placeholder="Email" required="required" />
+          <input matInput type="email" formControlName="email" placeholder="Email" required="required" />
         </mat-form-field>
         <mat-form-field>
-          <input name="password" matInput type="password" [(ngModel)]="password" placeholder="Contraseña" />
+          <input matInput type="password" formControlName="password" placeholder="Contraseña" />
         </mat-form-field>
         <mat-form-field>
-          <input name="confirmPassword" matInput type="password" [(ngModel)]="confirmPassword"
-            placeholder="Repite la contraseña" />
+          <input matInput type="password" formControlName="passwordConfirm" placeholder="Repite la contraseña" />
         </mat-form-field>
-        <button mat-raised-button color="primary" [disabled]="!registerForm.form.valid">Update</button>
+        <button mat-raised-button color="primary">Actualizar</button>
       </form>
     </mat-card-content>
+    <div [ngClass]="{'fade-in': updateFail, 'fade-out': !updateFail}" class="error">
+      <p>{{message}}</p>
+    </div>
   </mat-card>
 </div>

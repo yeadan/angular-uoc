@@ -54,7 +54,6 @@ export class RegisterComponent {
       email: this.form.get('email')!.value,
       password: this.form.get('password')!.value,
     };
-    console.log(user);
 
     this.userService.register(user).subscribe({
       next: () => {
