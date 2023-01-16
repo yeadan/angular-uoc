@@ -122,9 +122,9 @@ export class PostComponent {
     comment.content = text;
     console.log(comment);
     this.commentService.updateComment(comment, comment.id).subscribe({
-      next: (data) => {
+      next: () => {
         this.activeComment = -1;
-        console.log('updated! ', data);
+        console.log('Comment updated!');
       },
     });
   }
@@ -134,7 +134,7 @@ export class PostComponent {
     this.postService.editPost(post, post.id).subscribe({
       next: (data) => {
         this.activeMain = false;
-        console.log('updated! ', data);
+        console.log(' Post updated! ', data);
       },
     });
   }
