@@ -62,6 +62,7 @@ export class PostComponent {
     this.likeService.postLikes(this.postId!).subscribe({
       next: (data) => {
         this.likes = data;
+        if (this.testLike()) this.isLiked = true;
       },
     });
   }
@@ -79,6 +80,7 @@ export class PostComponent {
       next: () => {
         this.likes.splice(this.actualLike, 1);
         this.post.data.num_likes -= 1;
+        this.isLiked = false;
       },
     });
   }
@@ -89,6 +91,7 @@ export class PostComponent {
         this.actualLike = data.data;
         this.likes.push(this.actualLike);
         this.post.data.num_likes += 1;
+        this.isLiked = true;
       },
     });
   }
